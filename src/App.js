@@ -1,23 +1,32 @@
 import logo from './logo.svg';
-import { Nav, Navbar, NavbarBrand } from 'react-bootstrap'
+import { Navbar, NavbarBrand, Nav } from 'reactstrap'
+import Menu from './components/MenuComponent';
 import './App.css';
+import { DISHES } from './shared/dishes';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar bg="primary" variant="dark">
-        <div className="container">
-          <Navbar.Brand href="/">Ristorante Con Fusion</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#">Inicio</Nav.Link>
-            <Nav.Link href="#">Projectos</Nav.Link>
-            <Nav.Link href="#">Foro</Nav.Link>
-            <Nav.Link href="#">Contacto</Nav.Link>
-          </Nav>
-        </div>
-      </Navbar>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dishes: DISHES
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar color="primary" dark expand="md" light >
+          <div className="container">
+            <NavbarBrand href="/">Ristorante Con FUsion</NavbarBrand>
+          </div>
+        </Navbar>
+        <Menu dishes={this.state.dishes}/>
+      </div>
+    );
+  }
 }
 
 export default App;
