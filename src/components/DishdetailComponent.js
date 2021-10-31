@@ -16,7 +16,7 @@ class DishDetail extends Component {
             className="col-12 col-md-12 col-xs12 col-sm-12 m-1"
           >
             <p>{comment.comment}</p>
-            <p>{"--" + comment.author + ", " + comment.date}</p>
+            <p>{"--" + comment.author + ", " + new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
           </div>
         );
       });
